@@ -1,8 +1,13 @@
 import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const rename = async () => {
-  const PATH = './files/wrongFilename.txt';
-  const RENAME_PATH = './files/properFilename.md';
+  const PATH = path.resolve(__dirname, 'files', 'wrongFilename.txt');
+  const RENAME_PATH = path.resolve(__dirname, 'files', 'properFilename.md');
   fs.stat(PATH, function (err, stat) {
     if (err === null) {
       fs.stat(RENAME_PATH, function (err, stat) {
