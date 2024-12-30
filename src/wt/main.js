@@ -13,7 +13,7 @@ const performCalculations = async () => {
   for (let i = 0; i < cpuCount; i++) {
     promises.push(runThread(10 + i));
   }
-  const ans = await Promise.all(promises);
+  const ans = await Promise.allSettled(promises);
   console.log(ans);
 };
 
